@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set up Git repository
     - uses: actions/checkout@v1
     - name: LaTeX compilation
       uses: xu-cheng/latex-action@1.2.0
@@ -22,3 +23,7 @@ jobs:
     #  args: # optional, default is -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
     # Install extra packages by apt-get
     #  extra_system_packages: # optional
+    - uses: actions/upload-artifact@v1
+      with:
+        name: resume
+        path: main.pdf
