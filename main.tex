@@ -1,0 +1,150 @@
+% moderncv
+
+\documentclass[11pt,a4paper]{moderncv}
+\moderncvtheme[blue]{banking}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.1cm, bottom=1.1cm, left=2cm, right=2cm]{geometry}
+
+%custom head & body
+\usepackage{moderncvheadcustom}
+\usepackage{moderncvbodycustom}
+
+% Largeur de la colonne pour les dates
+\setlength{\hintscolumnwidth}{2.5cm}
+
+\firstname{Max}
+\familyname{Mattone}
+\title{Software engineer (Mines-Télécom)}
+\address{09 avenue de Nice, Résidence Héliotropes}{06600 Antibes (France)}
+\email{mattone.m@gmail.com}
+\mobile{+336 66 57 32 64}
+\extrainfo{28 years old -- Driving licence}
+\begin{document}
+\maketitle
+
+
+\section{Education}
+\cventry{2011 -- 2014}{Master Engineering Degree}{Mines Douai -- French engineering school}{Douai}{France}{Specialisation in information and communication technology}
+\cventry{2009 -- 2011}{B.Sc. Physics and Engineering}{Lycée Massena}{Nice}{France}{French Preparatory Classes to Top Schools (CPGE)}
+\section{Experiences}
+
+\cventry{sept 2017 -- today}{Software engineer consultant}{Amadeus, Sogeti contractor}{Sophia Antipolis}{France}{
+Back end development mission as part of the hotel booking distribution business team.
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+\item Scrum team in a SAFe organisation 
+\item C++ backend development with MoM (Message-Oriented Middleware).
+%\item Analysis and technical solutions design to fulfil client need in Agile methodology.
+\item Incident analysis and maintenance of the solution components with continuous integration.
+\item Studies and implementation of proof of concept to improve internal tooling.
+\end{itemize}
+}
+
+\cventry{may 2016 -- sept 2017}{Software quality assurance engineer consultant}{Air-France, Sogeti contractor}{Sophia Antipolis}{France}{
+QA engineering mission for Cascade project --- reengineering program of Air-France's flight planning system.
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+\item Functional analysis of the client needs: planning of standard flight, broadcast adjustments, \ldots
+\item Design and execution of manual and automatic test suite in Agile methodology.
+\item Insure regression test suite quality.
+\item Design and development of an in-house message injector (SOAP, SSM, ASM) for automated test suites. 
+\end{itemize}
+}
+
+\cventry{oct 2015 -- nov 2015}{Software research engineer}{École des Mines Douai}{Douai}{France}{
+Study and development of strategies for Wi-Fi coverage exploration and mapping.
+This study is a follow-up to an original work in 2014 at Mines Douai trying to tackle the indoor geolocation challenge using domestic Wi-Fi coverage mapping. 
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+	\item Architecture design for robotic intelligence.
+    \item C++ development for coverage map management.
+    \item Pharo (Smalltalk) development of exploration strategies definitions.
+    \item Design of strategies for Wi-Fi mapping.
+\end{itemize}
+}
+
+\cventry{nov 2014 -- oct 2015}{Software research engineer}{Inria Lille - Nord Europe \& École des Mines Douai}{Lille}{France}{
+How to get full benefit of a live coding environment like Pharo when working in a highly distributed robotic system ?
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+    \item Development of a prototype to broadcast dynamic update and migrations within Pharo platform.
+    \item Design and implementation of a Bootstrap process for the Pharo platform.
+    \item Contribution to open-source project PhaROS (Smalltalk implementation of ROS (Robotic Operating System) client).
+    \item Contribution to open-source project Pharo.
+    \item SLAM (Simultaneous Localization And Mapping) demonstration using Lidar (light detection and ranging) and robots like robuLAB et Kobuki.
+\end{itemize}
+}
+\newpage
+\subsection{Trainings}
+
+\cventry{april -- oct 2014}{Software engineer}{Inria Lille - Nord Europe}{Lille}{France}{
+Study and implementation of an architecture agnostic JIT (Just In Time) compiler, as a trainee in RMoD team (Remodularization Object-oriented Development).
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+\item Study and implementation of a multi-architecture compiler (mainly x86 \& ARM).
+\item Contribution to open-source project Pharo.
+\end{itemize}
+}
+
+\cventry{ march -- sept 2013}{Web engineer}{Dynaclic}{Bruxelles}{Belgium}{
+Development of an ERP platform for schools, colleges and universities.
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+\item MySQL database conception and maintenance.
+\item Web PHP development with the Yii framework.
+\end{itemize}
+}
+
+\cventry{may -- aug 2012}{Engineer assistant}{ESA (European Space Agency)}{Noordwijk}{Netherlands}{
+Collaborated with inhabited flight control segment with the ERA (European Robotic Arm) project.
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+\item Define and document network interfaces insuring secured communications to operate the robotic arm safely.
+\item Design and implementation of a database to help project management.
+\end{itemize}
+}
+
+\section{Other Experiences}
+
+\cventry{oct 2016 -- today}{Lead engineer}{ARB-C (Association des Résidents Bétahon-Cromenach)}{}{France}{
+Study, design, implementation, deploy and maintain a website for a local association of inhabitants in Brittany.
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+\item Implementation of a blog using Seaside framework.
+\item Host, deploy and maintain the solution using Docker.
+\end{itemize}
+}
+
+\cventry{sept 2013 -- june 2014}{IT project lead engineer}{Ironmines (Coupe de France de Robotique)}{Douai}{France}{
+École des Mines Douai's team to compete at the french robotic championship (Coupe de France de Robotique --- 28th to 31st of May 2014)
+\begin{itemize}
+\setlength{\itemindent}{0.25in}
+\item Design and implementation of an autonomous robotic platform using the ROS middleware.
+\item Implementation of plans and routines to achieve the different challenges during the competition.
+\end{itemize}
+}
+
+\section{Languages}
+\cvdoubleitem{French}{Native language}{English}{Fluent}
+
+\section{IT skills}
+
+\cvcomputer{OO Languages}{Smalltalk, Java, PHP, C++, CLOS, Python, Ruby}{Other Languages}{C, Bash, Pearl, Lisp, QML, ARM Assembly, Intel Assembly}
+\cvcomputer{Reengineering}{Graph theory, Scientific visualisation, Moose}{Environnements}{ROS, Eclipse, Message-Oriented Middleware,Yii, Moose, \mbox{Jenkins}, J2EE}
+\cvcomputer{Software architecture}{DevOps, Docker, Merise, UML, Design Patterns, Mind maps}{Project management}{Agile methodology, SAFe, Scrum, \mbox{Kanban}, V cycle, TDD, ATDD, BDD}
+\cvcomputer{Database}{MySQL, Oracle, MongoDB}{Front}{HTML, CSS, JavaScript, Qt, Android}
+\cvcomputer{Operating System}{Windows, macOS, Linux}{Versioning}{Git, svn, Mercurial}
+
+\section{Interests}
+
+\cvline{Sport}{Sailing (2 years of competition, Tall Ship Race 2014)}
+\cvline{Hobbies}{Cinema, travel, theatre (4 year of conservatoire study, 13 performances in 2017), board games}
+\cvline{Engineering}{Astronomy, robotics, mechanics, classic cars, electronics}
+
+\nocite{*}
+\bibliographystyle{apalike}
+\bibliography{pub}
+
+
+
+\end{document}
