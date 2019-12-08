@@ -115,7 +115,7 @@
   % optional quote
   \ifthenelse{\isundefined{\@quote}}%
     {}%
-    {{\centering\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\\[10em]}}%
+    {{\centering\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\\[2.5em]}}%
   \par}% to avoid weird spacing bug at the first section if no blank line is left after \maketitle}
 
 
@@ -148,7 +148,7 @@
   \@opening\\[1.5em]%
   % ensure no extra spacing after \makelettertitle due to a possible blank line
 %  \ignorespacesafterend% not working
-  \hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}}
+  \hspace{0pt}\par}
 
 
 \endinput
