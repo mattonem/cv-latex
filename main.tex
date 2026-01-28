@@ -1,171 +1,64 @@
 % moderncv
-
 \documentclass[11pt,a4paper]{moderncv}
 \moderncvtheme[blue]{banking}
 \usepackage[utf8]{inputenc}
 \usepackage[top=1cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}
-
-%custom head & body
-\usepackage{moderncvheadcustom}
-\usepackage{moderncvbodycustom}
 
 % Largeur de la colonne pour les dates
 \setlength{\hintscolumnwidth}{2.5cm}
 
 \firstname{Max}
 \familyname{Mattone}
-\title{Ingénieur Logiciel (Mines-Télécom)}
-\address{Dublin}{Irlande}
+\title{Opérateur Polyvalent | Support Technique | Manutention}
+\address{Dublin}{Irlande (Mobile pour la France)}
 \email{mattone.m@gmail.com}
 \mobile{+336 66 57 32 64}
-\extrainfo{33 ans -- Permis B}
+\extrainfo{33 ans -- Permis B -- Profil adaptable et dynamique}
+
 \begin{document}
 \maketitle
 
+\section{Profil}
+\quote{Ingénieur de formation en reconversion, je recherche des missions d'intérim dynamiques. Rigoureux, doté d'une excellente condition physique (pratique de la voile en compétition) et d'un sens aigu de l'organisation, je suis opérationnel immédiatement pour des postes de manutention, de support technique ou de contrôle qualité.}
+
+\section{Compétences Opérationnelles}
+\cvitem{Manutention}{Chargement/déchargement, gestion de stocks, préparation de commandes, respect des consignes de sécurité et des cadences.}
+\cvitem{Support \& QA}{Diagnostic technique, tests de conformité, remontée d'anomalies, maintenance de premier niveau, rédaction de rapports.}
+\cvitem{Soft Skills}{Ponctualité, esprit d'équipe, polyvalence, capacité d'apprentissage rapide, anglais courant.}
+
+\section{Expériences Professionnelles (Sélection)}
+
+\cventry{2020 -- 2024}{Ingénieur Support Client \& Solutions}{Browserstack}{Dublin}{}{
+\begin{itemize}
+\item Gestion opérationnelle des demandes clients et résolution de problèmes techniques en temps réel.
+\item Contrôle qualité et vérification de la conformité des outils.
+\item Travail en autonomie et gestion des priorités sous pression.
+\end{itemize}}
+
+\cventry{2016 -- 2017}{Consultant Assurance Qualité (QA)}{Air-France}{Sophia Antipolis}{}{
+\begin{itemize}
+\item Vérification de la fiabilité des systèmes critiques.
+\item Exécution de protocoles de tests rigoureux et contrôle de conformité.
+\item Analyse de pannes et suivi des corrections techniques.
+\end{itemize}}
+
+\cventry{2012}{Assistant technique}{ESA (Agence Spatiale Européenne)}{Pays-Bas}{}{
+\begin{itemize}
+\item Support technique sur le projet de bras robotique européen.
+\item Aide logistique et documentation technique des interfaces.
+\end{itemize}}
 
 \section{Formation}
-\cventry{2011 -- 2014}{Diplôme d'Ingénieur}{Mines Douai}{Douai}{France}{Spécialisation en technologies de l'information et de la communication}
-\cventry{2009 -- 2011}{L3 Physique et Ingénierie}{Lycée Masséna}{Nice}{France}{Classes Préparatoires aux Grandes Écoles (CPGE)}
+\cventry{2011 -- 2014}{Diplôme d'Ingénieur}{Mines Douai}{}{}{Formation scientifique pluridisciplinaire axée sur la résolution de problèmes complexes.}
+\cventry{2009 -- 2011}{Classes Préparatoires (CPGE)}{Lycée Masséna}{Nice}{}{Rigueur de travail et gestion de l'effort.}
 
-\section{Expériences Professionnelles}
-
-\cventry{nov 2020 -- aujourd'hui}{Ingénieur Solutions Client / Avant-vente}{Browserstack}{Dublin}{Irlande}{
-Ingénieur solutions client pour la plateforme de test Browserstack sur le segment Enterprise EMEA.
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Maintenir une communication proactive et constante avec les clients.
-\item Accompagner l'intégration de la plateforme dans le cycle de développement client. 
-\item Présenter les nouvelles fonctionnalités et produits, recueillir les retours et stimuler l'adoption. 
-\item Garantir le succès technique lors des phases de Proof of Concept (PoC). 
-\end{itemize}
-}
-
-\cventry{juillet 2019 -- nov 2020}{Lead Engineer technique Cloud}{Orange, consultant Sogeti}{Sophia Antipolis}{France}{
-Développement Backend pour le portail Orange.
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Conception, implémentation et maintenance de backends PHP.
-\item Réconciliation de sources de données multiples via MySQL et Elastic Search.
-\item Intégration et déploiement continus (CI/CD) dans le cloud avec Gitlab et CloudFoundry.
-\item Monitoring de la production avec Kibana et Elastic Search.
-\end{itemize}
-}
-
-\cventry{sept 2017 -- juin 2019}{Ingénieur Consultant Logiciel}{Amadeus, consultant Sogeti}{Sophia Antipolis}{France}{
-Mission de développement back-end au sein de l'équipe de distribution de réservations hôtelières.
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Équipe Scrum dans une organisation SAFe.
-\item Développement backend C++ avec MoM (Message-Oriented Middleware).
-\item Analyse d'incidents et maintenance des composants de la solution en intégration continue.
-\item Études et implémentation de Proof of Concept (PoC) pour l'amélioration de l'outillage interne.
-\end{itemize}
-}
-
-\cventry{mai 2016 -- sept 2017}{Ingénieur Consultant QA Logiciel}{Air-France, consultant Sogeti}{Sophia Antipolis}{France}{
-Mission d'ingénierie QA pour le projet Cascade --- programme de refonte du système de planification de vols d'Air-France.
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Analyse fonctionnelle des besoins clients : planification de vols standards, ajustements de diffusion, \ldots
-\item Conception et exécution de suites de tests manuelles et automatiques en méthodologie Agile.
-\item Garantie de la qualité de la suite de tests de non-régression.
-\item Conception et développement d'un injecteur de messages interne (SOAP, SSM, ASM) pour les suites de tests automatisées. 
-\end{itemize}
-}
-
-\cventry{oct 2015 -- nov 2015}{Ingénieur de Recherche Logiciel}{École des Mines Douai}{Douai}{France}{
-Étude et développement de stratégies pour l'exploration et la cartographie de couverture Wi-Fi.
-Cette étude fait suite à un travail original de 2014 aux Mines Douai visant à relever le défi de la géolocalisation intérieure par la cartographie Wi-Fi domestique. 
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-    \item Conception de l'architecture pour l'intelligence robotique.
-    \item Développement C++ pour la gestion des cartes de couverture.
-    \item Développement Pharo (Smalltalk) des définitions de stratégies d'exploration.
-    \item Conception de stratégies pour la cartographie Wi-Fi.
-\end{itemize}
-}
-
-\cventry{nov 2014 -- oct 2015}{Ingénieur de Recherche Logiciel}{Inria Lille - Nord Europe \& École des Mines Douai}{Lille}{France}{
-Comment tirer pleinement profit d'un environnement de live coding comme Pharo dans un système robotique hautement distribué ?
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-    \item Développement d'un prototype pour diffuser des mises à jour dynamiques et des migrations au sein de la plateforme Pharo.
-    \item Conception et implémentation d'un processus de Bootstrap pour la plateforme Pharo.
-    \item Contribution au projet open-source PhaROS (client ROS (Robotic Operating System) pour Smalltalk).
-    \item Contribution au projet open-source Pharo.
-    \item Démonstration SLAM (Simultaneous Localization And Mapping) utilisant le Lidar et des robots robuLAB et Kobuki.
-\end{itemize}
-}
-
-\subsection{Stages}
-
-\cventry{avril -- oct 2014}{Ingénieur Logiciel}{Inria Lille - Nord Europe}{Lille}{France}{
-Étude et implémentation d'un compilateur JIT (Just In Time) agnostique de l'architecture, en tant que stagiaire dans l'équipe RMoD.
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Étude et implémentation d'un compilateur multi-architecture (principalement x86 \& ARM).
-\item Contribution au projet open-source Pharo.
-\end{itemize}
-}
-
-\cventry{mars -- sept 2013}{Ingénieur Web}{Dynaclic}{Bruxelles}{Belgique}{
-Développement d'une plateforme ERP pour écoles, collèges et universités.
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Conception et maintenance de bases de données MySQL.
-\item Développement Web PHP avec le framework Yii.
-\end{itemize}
-}
-
-\cventry{mai -- août 2012}{Assistant Ingénieur}{ESA (Agence Spatiale Européenne)}{Noordwijk}{Pays-Bas}{
-Collaboration avec le segment de contrôle des vols habités sur le projet ERA (European Robotic Arm).
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Définition et documentation des interfaces réseau assurant des communications sécurisées pour opérer le bras robotique en toute sécurité.
-\item Conception et implémentation d'une base de données pour l'aide à la gestion de projet.
-\end{itemize}
-}
-
-\section{Autres Expériences}
-
-\cventry{oct 2016 -- jan 2021}{Lead Engineer}{ARB-C (Association des Résidents Bétahon-Cromenach)}{}{France}{
-Étude, conception, implémentation, déploiement et maintenance d'un site web pour une association locale en Bretagne.
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Implémentation d'un blog utilisant le framework Seaside.
-\item Hébergement, déploiement et maintenance de la solution via Docker.
-\end{itemize}
-}
-
-\cventry{sept 2013 -- juin 2014}{Responsable de projet IT}{Ironmines (Coupe de France de Robotique)}{Douai}{France}{
-Équipe de l'École des Mines Douai pour la Coupe de France de Robotique 2014.
-\begin{itemize}
-\setlength{\itemindent}{0.25in}
-\item Conception et implémentation d'une plateforme robotique autonome utilisant le middleware ROS.
-\item Implémentation des plans et routines pour réaliser les différents défis de la compétition.
-\end{itemize}
-}
-
-\section{Langues}
-\cvdoubleitem{Français}{Langue maternelle}{Anglais}{Courant}
-
-\section{Compétences Informatiques}
-
-\cvcomputer{Langages OO}{Smalltalk, Java, PHP, C++, CLOS, Python, Ruby}{Autres}{C, Bash, Pearl, Lisp, Assembleur ARM}
-\cvcomputer{Réingénierie}{Théorie des graphes, Visualisation scientifique, Moose}{Environnements}{Eclipse, Message-Oriented Middleware, Yii, Moose, \mbox{Jenkins}, J2EE}
-\cvcomputer{Architecture}{Cloud Foundry, AWS, Docker, UML, Design Patterns, NPM, Composer, Gradle, Maven}{Gestion de projet}{Méthodologie Agile, DevOps, SAFe, Scrum, \mbox{Kanban}, TDD, ATDD, BDD}
-\cvcomputer{Bases de données}{MySQL, Oracle, Elastic Search, MongoDB}{Front-end}{HTML, CSS, JavaScript, Qt, Android, Vue.js}
-\cvcomputer{Systèmes}{Windows, macOS, Linux}{Gestion de version}{Git, SVN, Mercurial}
+\section{Langues \& Atouts}
+\cvdoubleitem{Français}{Maternel}{Anglais}{Courant (C1)}
+\cvdoubleitem{Permis}{Permis B (Véhiculé)}{Disponibilité}{Immédiate, horaires décalés acceptés}
 
 \section{Centres d'intérêt}
-
-\cvline{Contributions OpenSource} {\href{https://github.com/mattonem}{GitHub}, \href{https://www.npmjs.com/~maxmattone}{NPM}}
-\cvline{Sport}{Voile (2 ans de compétition, Tall Ship Race 2014)}
-\cvline{Loisirs}{Cinéma, voyages, théâtre (4 ans de conservatoire, 13 représentations en 2017), jeux de société}
-\cvline{Ingénierie}{Astronomie, robotique, mécanique, voitures anciennes, électronique}
-
-\nocite{*}
-\bibliographystyle{apalike}
-\bibliography{pub}
+\cvline{Sport}{Voile (2 ans de compétition, Tall Ship Race 2014) - Endurance physique.}
+\cvline{Bricolage}{Mécanique automobile classique, électronique, maintenance de matériel.}
+\cvline{Loisirs}{Théâtre (discipline et aisance relationnelle), Voyages.}
 
 \end{document}
