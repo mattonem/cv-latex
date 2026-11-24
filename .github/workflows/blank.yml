@@ -33,11 +33,37 @@ jobs:
           deploy_dir="site/${branch_name}"
           mkdir -p "${deploy_dir}"
           cp main.pdf "${deploy_dir}/main.pdf"
-          printf '%s\n' \
-            '<!doctype html>' \
-            '<meta http-equiv="refresh" content="0; url=main.pdf">' \
-            '<title>CV PDF</title>' \
-            > "${deploy_dir}/index.html"
+          repository_name="${GITHUB_REPOSITORY#*/}"
+          if [[ "${repository_name}" == "${GITHUB_REPOSITORY_OWNER}.github.io" ]]; then
+            pdf_url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${branch_name}/main.pdf"
+          else
+            pdf_url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${repository_name}/${branch_name}/main.pdf"
+          fi
+          python -m pip install qrcode
+          QR_OUTPUT="${deploy_dir}/main.svg" QR_URL="${pdf_url}" python - <<'PY'
+          import os
+          import qrcode
+          from qrcode.image.svg import SvgPathImage
+
+          code = qrcode.make(os.environ["QR_URL"], image_factory=SvgPathImage)
+          code.save(os.environ["QR_OUTPUT"])
+          PY
+          cat > "${deploy_dir}/index.html" <<EOF
+          <!doctype html>
+          <html lang="fr">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <title>CV PDF - ${branch_name}</title>
+            </head>
+            <body>
+              <h1>CV - ${branch_name}</h1>
+              <p><a href="main.pdf">Ouvrir le PDF</a></p>
+              <p>Scanner ce QR code pour ouvrir le PDF :</p>
+              <img src="main.svg" alt="QR code vers le PDF">
+            </body>
+          </html>
+          EOF
           echo "branch_name=${branch_name}" >> "${GITHUB_OUTPUT}"
 
       - name: Upload PDF artifact
