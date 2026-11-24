@@ -1,44 +1,29 @@
 name: CI
 
-on:
-  push:
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-concurrency:
-  group: gh-pages
-  cancel-in-progress: false
+on: [push]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
     - name: Set up Git repository
-      uses: actions/checkout@v4
-
+      uses: actions/checkout@v1
     - name: LaTeX compilation
       uses: xu-cheng/latex-action@1.2.0
       with:
+    # The root LaTeX file to be compiled
         root_file: main.tex
-
-    - name: Upload PDF artifact
-      uses: actions/upload-artifact@v4
+    # The working directory for the latex compiler to be invoked
+    #  working_directory: # optional
+    # LaTeX engine to be used
+    #  compiler: # optional, default is latexmk
+    # Extra arguments to be passed to the latex compiler
+    #  args: # optional, default is -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+    # Install extra packages by apt-get
+    #  extra_system_packages: # optional
+    - uses: actions/upload-artifact@v4
       with:
         name: resume
         path: main.pdf
-
-    - name: Prepare GitHub Pages folder
-      run: |
-        mkdir -p "public/${GITHUB_REF_NAME}"
-        cp main.pdf "public/${GITHUB_REF_NAME}/main.pdf"
-
-    - name: Deploy PDF to gh-pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: ./public
-        keep_files: true
