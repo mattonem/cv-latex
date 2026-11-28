@@ -1,29 +1,80 @@
-name: CI
+name: Build and deploy PDF
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages-pdf
+  cancel-in-progress: false
 
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up Git repository
-      uses: actions/checkout@v1
-    - name: LaTeX compilation
-      uses: xu-cheng/latex-action@1.2.0
-      with:
-    # The root LaTeX file to be compiled
-        root_file: main.tex
-    # The working directory for the latex compiler to be invoked
-    #  working_directory: # optional
-    # LaTeX engine to be used
-    #  compiler: # optional, default is latexmk
-    # Extra arguments to be passed to the latex compiler
-    #  args: # optional, default is -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-    # Install extra packages by apt-get
-    #  extra_system_packages: # optional
-    - uses: actions/upload-artifact@v4
-      with:
-        name: resume
-        path: main.pdf
+      - name: Check out the branch
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@1.2.0
+        with:
+          root_file: main.tex
+
+      - name: Prepare the branch deployment
+        id: deployment
+        shell: bash
+        run: |
+          branch_name="$(printf '%s' "${GITHUB_REF_NAME}" | sed 's#[^A-Za-z0-9._-]#-#g')"
+          deploy_dir="site/${branch_name}"
+          mkdir -p "${deploy_dir}"
+          cp main.pdf "${deploy_dir}/main.pdf"
+          repository_name="${GITHUB_REPOSITORY#*/}"
+          if [[ "${repository_name}" == "${GITHUB_REPOSITORY_OWNER}.github.io" ]]; then
+            pdf_url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${branch_name}/main.pdf"
+          else
+            pdf_url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${repository_name}/${branch_name}/main.pdf"
+          fi
+          python -m pip install qrcode
+          QR_OUTPUT="${deploy_dir}/main.svg" QR_URL="${pdf_url}" python - <<'PY'
+          import os
+          import qrcode
+          from qrcode.image.svg import SvgPathImage
+
+          code = qrcode.make(os.environ["QR_URL"], image_factory=SvgPathImage)
+          code.save(os.environ["QR_OUTPUT"])
+          PY
+          cat > "${deploy_dir}/index.html" <<EOF
+          <!doctype html>
+          <html lang="fr">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <title>CV PDF - ${branch_name}</title>
+            </head>
+            <body>
+              <h1>CV - ${branch_name}</h1>
+              <p><a href="main.pdf">Ouvrir le PDF</a></p>
+              <p>Scanner ce QR code pour ouvrir le PDF :</p>
+              <img src="main.svg" alt="QR code vers le PDF">
+            </body>
+          </html>
+          EOF
+          echo "branch_name=${branch_name}" >> "${GITHUB_OUTPUT}"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-${{ steps.deployment.outputs.branch_name }}
+          path: main.pdf
+
+      - name: Deploy PDF to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          keep_files: true
