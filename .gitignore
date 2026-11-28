@@ -3,3 +3,8 @@
 *.log
 *.fls
 *.code-workspace
+*.bbl
+*.blg
+*.out
+*.pdf
+*.synctex.gz
